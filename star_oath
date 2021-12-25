@@ -1,0 +1,50 @@
+// MTGAP's "final" layout for the main 30 keys of an ANSI or ISO keyboard
+
+default partial
+xkb_symbols "basic" {
+
+    // the default variant has no AltGr layer and does
+    // not use CAPS as BackSpace
+
+    include "us(basic)"
+
+    name[Group1] = "STAR_OATH";
+
+    key <AD01> {[ quotedbl,  colon     ]};
+    key <AD02> {[ f,         F         ]};
+    key <AD03> {[ o,         O         ]};
+    key <AD04> {[ u,         U         ]};
+    key <AD05> {[ z,         Z         ]};
+    key <AD06> {[ v,         V         ]};
+    key <AD07> {[ m,         M         ]};
+    key <AD08> {[ s,         S         ]};
+    key <AD09> {[ c,         C         ]};
+    key <AD10> {[ q,         Q         ]};
+
+    key <AC01> {[ y,         Y         ]};
+    key <AC02> {[ h,         H         ]};
+    key <AC03> {[ e,         E         ]};
+    key <AC04> {[ a,         A         ]};
+    key <AC05> {[ comma,     less      ]};
+    key <AC06> {[ g,         G         ]};
+    key <AC07> {[ t,         T         ]};
+    key <AC08> {[ n,         N         ]};
+    key <AC09> {[ r,         R         ]};
+    key <AC10> {[ p,         P         ]};
+    key <AC11> {[ apostrophe, semicolon ]};
+
+    key <AB01> {[ j,         J         ]};
+    key <AB02> {[ period,    greater   ]};
+    key <AB03> {[ k,         K         ]};
+    key <AB04> {[ i,         I         ]};
+    key <AB05> {[ x,         X         ]};
+    key <AB06> {[ b,         B         ]};
+    key <AB07> {[ d,         D         ]};
+    key <AB08> {[ l,         L         ]};
+    key <AB09> {[ w,         W         ]};
+    key <AB10> {[ slash,     question  ]};
+    replace key <CAPS> {[ Control_L, Escape, BackSpace, BackSpace ]};
+    replace key <LCTL> {[ Caps_Lock, Escape, BackSpace, BackSpace ]};
+    modifier_map Control { <CAPS> };
+    modifier_map  Lock { <LCTL> };
+};
