@@ -175,6 +175,7 @@ programs.zsh = {
     evince
     cinnamon.nemo
     git
+    gh
     mu
     tmux
     kitty
