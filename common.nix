@@ -6,10 +6,11 @@
 
 with pkgs;
 
-let
-layout = ./star_oath;
-in
-rec {
+# let
+# layout = ./symbols/star_oath;
+# in
+# rec
+{
   imports =
     [ # Include the results of the hardware scan.
       # ./hardware-configuration.nix
@@ -61,6 +62,11 @@ rec {
   services.blueman.enable = true;
   # Enable the X11 windowing system.
  #services.xserver.videoDrivers = [ "displaylink" "modesetting" ];
+  services.xserver.extraLayouts.star_oath = {
+  description = "Star oath layout";
+  languages   = [ "eng" ];
+  symbolsFile = ./symbols/star_oath;
+};
  services.xserver = {
     enable = true;   
     displayManager.sddm.enable = true;
@@ -79,9 +85,9 @@ rec {
         enable = true;
       };
     };
-   displayManager.sessionCommands = '' 
-       ${xorg.xkbcomp}/bin/xkbcomp ${layout} $DISPLAY &
-     '';
+   # displayManager.sessionCommands = ''
+       # ${xorg.xkbcomp}/bin/xkbcomp ${layout} $DISPLAY &
+     # '';
     windowManager.i3 = {
       enable = true;
       extraPackages = with pkgs; [

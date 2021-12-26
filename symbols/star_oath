@@ -1,7 +1,7 @@
 // MTGAP's "final" layout for the main 30 keys of an ANSI or ISO keyboard
 
 default partial
-xkb_symbols "basic" {
+xkb_symbols "star_oath" {
 
     // the default variant has no AltGr layer and does
     // not use CAPS as BackSpace
