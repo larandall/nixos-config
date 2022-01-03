@@ -172,6 +172,8 @@ programs.zsh = {
     libnotify
     unzip
     fbterm
+    zettlr
+    obsidian
     minecraft
     spotify
     wget
