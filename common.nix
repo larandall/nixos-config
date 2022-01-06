@@ -70,6 +70,13 @@ with pkgs;
  services.xserver = {
     enable = true;   
     displayManager.sddm.enable = true;
+    displayManager.session = [
+        {
+            manage = "desktop";
+            name = "plasma5+i3+whatever";
+            start = ''exec env KDEWM=${pkgs.i3}/bin/i3 ${pkgs.plasma-workspace}/bin/startplasma-x11'';
+        }
+    ];
     desktopManager = {
   #    default = "plasma5";
       xterm.enable = false;
@@ -169,6 +176,11 @@ programs.zsh = {
     xorg.xkbcomp
     neovim
     plasma-thunderbolt
+    libsigcxx
+    jsoncpp
+    gnumake
+    extra-cmake-modules
+    compton
     libnotify
     unzip
     fbterm
@@ -191,6 +203,7 @@ programs.zsh = {
     dropbox-cli
     pandoc
     google-chrome
+    cmake
     oh-my-zsh
     zsh
     texlive.combined.scheme-medium
