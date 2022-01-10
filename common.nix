@@ -117,7 +117,7 @@ with pkgs;
   # Enable CUPS to print documents.
   services.printing = {
     enable = true;
-    drivers = [pkgs.hplipWithPlugin];
+    drivers = [pkgs.hplip];
   };
 
   # Enable sound.
@@ -146,6 +146,7 @@ programs.zsh = {
     enableCompletion = true;
     autosuggestions.enable = true;
   }; 
+programs.system-config-printer.enable = true;
 # Fonts
   fonts = {
     fontDir = {
