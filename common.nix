@@ -179,10 +179,14 @@ programs.system-config-printer.enable = true;
   environment.systemPackages = with pkgs; [
     xorg.xkbcomp
     neovim
+    zip
+    libvterm
+    libreoffice
     plasma-thunderbolt
     libsigcxx
     jsoncpp
     gnumake
+    libtool
     extra-cmake-modules
     compton
     libnotify
@@ -203,7 +207,10 @@ programs.system-config-printer.enable = true;
     mu
     tmux
     kitty
-    emacs
+    # emacs
+((emacsPackagesNgGen emacs).emacsWithPackages (epkgs: [
+    epkgs.vterm
+  ]))
     dropbox-cli
     pandoc
     google-chrome
