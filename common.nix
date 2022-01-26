@@ -76,6 +76,11 @@ with pkgs;
             name = "plasma5+i3+whatever";
             start = ''exec env KDEWM=${pkgs.i3}/bin/i3 ${pkgs.plasma-workspace}/bin/startplasma-x11'';
         }
+        {
+            manage = "desktop";
+            name = "plasma5+awesome+whatever";
+            start = ''exec env KDEWM=${pkgs.awesome}/bin/awesome ${pkgs.plasma-workspace}/bin/startplasma-x11'';
+        }
     ];
     desktopManager = {
   #    default = "plasma5";
@@ -95,6 +100,14 @@ with pkgs;
    # displayManager.sessionCommands = ''
        # ${xorg.xkbcomp}/bin/xkbcomp ${layout} $DISPLAY &
      # '';
+windowManager.awesome = {
+      enable = true;
+      luaModules = with pkgs.luaPackages; [
+        luarocks # is the package manager for Lua modules
+        luadbi-mysql # Database abstraction layer
+      ];
+
+    };
     windowManager.i3 = {
       enable = true;
       extraPackages = with pkgs; [
