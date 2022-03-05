@@ -174,6 +174,8 @@ programs.system-config-printer.enable = true;
       source-code-pro
     ];
   };
+services.tor.enable = true;
+services.tor.client.enable = true;
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
