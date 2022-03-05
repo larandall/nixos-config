@@ -78,9 +78,14 @@ with pkgs;
         }
         {
             manage = "desktop";
-            name = "plasma5+awesome+whatever";
-            start = ''exec env KDEWM=${pkgs.awesome}/bin/awesome ${pkgs.plasma-workspace}/bin/startplasma-x11'';
+            name = "plasma5+bspwm+now";
+            start = ''exec env KDEWM=/run/current-system/sw/bin/bspwm ${pkgs.plasma-workspace}/bin/startplasma-x11'';
         }
+        # {
+            # manage = "desktop";
+            # name = "plasma5+awesome+whatever";
+            # start = ''exec env KDEWM=${pkgs.awesome}/bin/awesome ${pkgs.plasma-workspace}/bin/startplasma-x11'';
+        # }
     ];
     desktopManager = {
   #    default = "plasma5";
@@ -97,6 +102,9 @@ with pkgs;
         enable = true;
       };
     };
+    windowManager.bspwm.enable=true;
+    windowManager.bspwm.configFile = "/home/avery/Dropbox/Trial/dotfiles/common/bspwm/bspwmrc";
+		windowManager.bspwm.sxhkd.configFile= "/home/avery/Dropbox/Trial/dotfiles/common/bspwm/sxhkdrc";
    # displayManager.sessionCommands = ''
        # ${xorg.xkbcomp}/bin/xkbcomp ${layout} $DISPLAY &
      # '';
@@ -106,8 +114,10 @@ windowManager.awesome = {
         luarocks # is the package manager for Lua modules
         luadbi-mysql # Database abstraction layer
       ];
-
     };
+windowManager.xmonad = {
+  enable = true;
+};
     windowManager.i3 = {
       enable = true;
       extraPackages = with pkgs; [
@@ -191,6 +201,8 @@ programs.system-config-printer.enable = true;
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     xorg.xkbcomp
+    sxhkd
+    polybar
     neovim
     zip
     libvterm
@@ -212,7 +224,7 @@ programs.system-config-printer.enable = true;
     wget
     firefox
     zotero
-    zoom
+    zoom-us
     evince
     cinnamon.nemo
     git
