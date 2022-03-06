@@ -199,6 +199,7 @@ programs.system-config-printer.enable = true;
   };
 services.tor.enable = true;
 services.tor.client.enable = true;
+programs.steam.enable = true;
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
@@ -209,6 +210,7 @@ services.tor.client.enable = true;
     zip
     libvterm
     libreoffice
+    okular
     plasma-thunderbolt
     libsigcxx
     jsoncpp
