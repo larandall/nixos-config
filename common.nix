@@ -180,11 +180,11 @@ programs.system-config-printer.enable = true;
       #corefonts # Microsoft free fonts
       inconsolata # monospaced
       unifont # some international languages
-      font-awesome-ttf
+      font-awesome
       freefont_ttf
-      opensans-ttf
+      open-sans
       liberation_ttf
-      liberationsansnarrow
+      liberation-sans-narrow
       ttf_bitstream_vera
       libertine
       ubuntu_font_family
@@ -199,7 +199,7 @@ programs.system-config-printer.enable = true;
   };
 services.tor.enable = true;
 services.tor.client.enable = true;
-programs.steam.enable = true;
+# programs.steam.enable = true;
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
@@ -237,7 +237,7 @@ programs.steam.enable = true;
     tmux
     kitty
     # emacs
-((emacsPackagesNgGen emacs).emacsWithPackages (epkgs: [
+((emacsPackagesFor emacs).emacsWithPackages (epkgs: [
     epkgs.vterm
   ]))
     dropbox-cli
